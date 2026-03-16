@@ -1,0 +1,26 @@
+.container {
+  padding: 30rpx;
+}
+.input-section {
+  background: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+.input-section input {
+  border: 1px solid #ddd;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.recipe-card {
+  background: #fff3e0;
+  border-radius: 16rpx;
+  padding: 30rpx;
+}
+.recipe-title {
+  font-size: 36rpx;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 20rpx;
+}

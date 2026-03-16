@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/qa/qa",
+    "pages/food/food",
+    "pages/nutritionist/nutritionist",
+    "pages/health/health",
+    "pages/articles/articles"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "糖友助手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_active.png"
+      },
+      {
+        "pagePath": "pages/qa/qa",
+        "text": "科普",
+        "iconPath": "/images/qa.png",
+        "selectedIconPath": "/images/qa_active.png"
+      },
+      {
+        "pagePath": "pages/food/food",
+        "text": "饮食",
+        "iconPath": "/images/food.png",
+        "selectedIconPath": "/images/food_active.png"
+      },
+      {
+        "pagePath": "pages/health/health",
+        "text": "健康",
+        "iconPath": "/images/dietitian.png",
+        "selectedIconPath": "/images/dietitian_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

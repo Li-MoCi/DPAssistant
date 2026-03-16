@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="chat-history" id="chat-list">
+    <block wx:for="{{messages}}" wx:key="index">
+      <view class="message {{item.role === 'user' ? 'user' : 'assistant'}}">
+        <view class="bubble">{{item.content}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="input-area">
+    <input type="text" placeholder="输入您的问题..." bindinput="onInput" value="{{inputValue}}" />
+    <button size="mini" type="primary" bindtap="sendMessage">发送</button>
+    <button size="mini" bindtap="startVoice">🎤</button>
+  </view>
+</view>

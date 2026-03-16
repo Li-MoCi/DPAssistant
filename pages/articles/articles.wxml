@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="section">
+    <text class="section-title">今日推荐</text>
+    <view class="article-card" wx:if="{{todayArticle}}" bindtap="viewDetail" data-id="{{todayArticle.id}}">
+      <text class="article-title">{{todayArticle.title}}</text>
+      <text class="article-summary">{{todayArticle.summary}}</text>
+    </view>
+  </view>
+  <view class="section">
+    <text class="section-title">历史文章</text>
+    <view wx:for="{{historyArticles}}" wx:key="id" class="article-item" bindtap="viewDetail" data-id="{{item.id}}">
+      <text>{{item.title}}</text>
+    </view>
+  </view>
+</view>

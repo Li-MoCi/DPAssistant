@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="section">
+    <text class="section-title">血糖趋势（最近7天）</text>
+    <canvas canvas-id="glucoseChart" style="width:100%; height:400rpx;"></canvas>
+  </view>
+  <view class="section">
+    <text class="section-title">记录新数据</text>
+    <picker mode="selector" range="{{recordTypes}}" bindchange="onTypeChange">
+      <view class="picker">类型：{{currentType}}</view>
+    </picker>
+    <input type="digit" placeholder="数值" bindinput="onValueInput" />
+    <button type="primary" bindtap="addRecord">添加记录</button>
+  </view>
+  <view class="section">
+    <text class="section-title">AI建议</text>
+    <view class="advice-card">{{advice}}</view>
+  </view>
+</view>

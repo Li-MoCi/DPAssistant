@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="header">
+    <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
+    <text class="greeting">你好，{{nickName}}</text>
+  </view>
+  <view class="card-grid">
+    <view class="card" wx:for="{{functions}}" wx:key="index" data-url="{{item.url}}" bindtap="goToPage">
+      <image class="card-icon" src="{{item.icon}}"></image>
+      <text class="card-title">{{item.title}}</text>
+      <text class="card-desc">{{item.desc}}</text>
+    </view>
+  </view>
+</view>

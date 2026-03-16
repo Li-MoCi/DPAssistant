@@ -1,0 +1,36 @@
+.container {
+  padding: 20rpx;
+}
+.section {
+  background: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 20rpx;
+}
+.article-card {
+  background: #f1f8e9;
+  padding: 30rpx;
+  border-radius: 16rpx;
+}
+.article-title {
+  font-size: 36rpx;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 16rpx;
+}
+.article-summary {
+  color: #666;
+}
+.article-item {
+  padding: 24rpx 0;
+  border-bottom: 1px solid #eee;
+}
+.article-item:last-child {
+  border-bottom: none;
+}

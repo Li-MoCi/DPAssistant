@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="input-section">
+    <input placeholder="例如：我今天想吃面条" bindinput="onInput" value="{{userRequest}}" />
+    <button type="primary" bindtap="generateRecipe">生成控糖食谱</button>
+  </view>
+  <view wx:if="{{recipe}}" class="recipe-card">
+    <text class="recipe-title">🍽️ 您的控糖食谱</text>
+    <text>{{recipe}}</text>
+  </view>
+</view>

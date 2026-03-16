@@ -1,0 +1,51 @@
+.container {
+  padding: 20rpx;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  background: white;
+  padding: 30rpx;
+  border-radius: 16rpx;
+}
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.greeting {
+  font-size: 36rpx;
+  font-weight: 500;
+}
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card {
+  width: 48%;
+  background: white;
+  border-radius: 16rpx;
+  padding: 30rpx 20rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+.card-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 16rpx;
+}
+.card-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  display: block;
+}
+.card-desc {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+  display: block;
+}

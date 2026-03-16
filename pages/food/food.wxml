@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="section">
+    <button type="primary" bindtap="takePhoto">📷 拍照识别食物</button>
+    <button bindtap="uploadImage">🖼️ 从相册上传</button>
+  </view>
+  <view wx:if="{{recognizedFood}}" class="recognized-card">
+    <text>识别结果：{{recognizedFood.name}}（估算含糖量：{{recognizedFood.sugar}}g）</text>
+    <button size="mini" bindtap="confirmRecord">确认记录</button>
+  </view>
+  <view class="section">
+    <text class="section-title">今日饮食记录</text>
+    <view wx:for="{{todayRecords}}" wx:key="index" class="record-item">
+      <text>{{item.meal}}：{{item.foods[0].name}} {{item.foods[0].amount}}（糖{{item.sugar}}g）</text>
+    </view>
+    <view wx:if="{{todayRecords.length === 0}}">暂无记录，点击拍照添加</view>
+  </view>
+  <view class="section">
+    <button bindtap="generateWeekReport">📊 生成饮食周报</button>
+    <view wx:if="{{weekReport}}" class="report-card">
+      <text>{{weekReport}}</text>
+    </view>
+  </view>
+</view>
