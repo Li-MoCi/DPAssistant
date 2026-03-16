@@ -18,6 +18,18 @@ Page({
     });
   },
   goToPage(e) {
+    console.log(e)
+    if(e.currentTarget.dataset.url=="/pages/articles/articles" ||e.currentTarget.dataset.url=="/pages/nutritionist/nutritionist" )
+    {
+      console.log(e)
     wx.navigateTo({ url: e.currentTarget.dataset.url });
+    }
+    else
+    {
+      console.log("cccccc")
+      wx.switchTab({
+        url: e.currentTarget.dataset.url,
+      })
+    }
   }
 })

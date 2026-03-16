@@ -2,6 +2,12 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.08) 0 10rpx,
+    transparent 10rpx 22rpx
+  ),
+  linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 .chat-history {
   flex: 1;
@@ -24,17 +30,24 @@
   border-radius: 16rpx;
   background-color: #e5e5e5;
   word-wrap: break-word;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 .user .bubble {
-  background-color: #07c160;
+  background: linear-gradient(135deg, rgba(63, 81, 181, 0.95) 0%, rgba(63, 81, 181, 0.75) 100%);
   color: white;
+}
+.assistant .bubble {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 1rpx solid rgba(63, 81, 181, 0.2);
 }
 .input-area {
   display: flex;
   align-items: center;
   padding: 16rpx 20rpx;
-  background-color: white;
-  border-top: 1px solid #eee;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-top: 1rpx solid rgba(63, 81, 181, 0.2);
+  box-shadow: 0 -2rpx 8rpx rgba(0, 0, 0, 0.1);
 }
 .input-area input {
   flex: 1;
@@ -43,7 +56,23 @@
   border-radius: 34rpx;
   padding: 0 20rpx;
   margin-right: 16rpx;
+  border: 2rpx solid rgba(63, 81, 181, 0.3);
+  transition: border-color 0.3s ease;
+}
+.input-area input:focus {
+  border-color: rgba(63, 81, 181, 0.6);
 }
 .input-area button {
   margin-left: 8rpx;
+  background: linear-gradient(135deg, rgba(63, 81, 181, 0.95) 0%, rgba(63, 81, 181, 0.75) 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 68rpx;
+  height: 68rpx;
+  box-shadow: 0 2rpx 8rpx rgba(63, 81, 181, 0.3);
+  transition: all 0.3s ease;
+}
+.input-area button:active {
+  transform: scale(0.95);
 }

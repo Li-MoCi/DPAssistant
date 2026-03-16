@@ -1,26 +1,53 @@
 .container {
   padding: 30rpx;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 0 10rpx,
+    transparent 10rpx 20rpx
+  ),
+  linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
 }
 .input-section {
-  background: white;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border-radius: 16rpx;
   padding: 30rpx;
   margin-bottom: 20rpx;
+  box-shadow: 0 12rpx 28rpx rgba(0, 0, 0, 0.12), 0 6rpx 18rpx rgba(63, 81, 181, 0.08);
+  border: 1rpx solid transparent;
+  border-image: repeating-linear-gradient(
+    45deg,
+    rgba(63, 81, 181, 0.25) 0 4rpx,
+    transparent 4rpx 8rpx
+  ) 1;
 }
 .input-section input {
-  border: 1px solid #ddd;
-  border-radius: 8rpx;
+  border: 2rpx solid rgba(63, 81, 181, 0.25);
+  border-radius: 12rpx;
   padding: 20rpx;
   margin-bottom: 20rpx;
+  background: #f8f9fa;
+  transition: border-color 0.3s ease;
+}
+.input-section input:focus {
+  border-color: rgba(63, 81, 181, 0.6);
 }
 .recipe-card {
-  background: #fff3e0;
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
   border-radius: 16rpx;
   padding: 30rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  border: 1rpx solid #ff9800;
+  transition: all 0.3s ease;
+}
+.recipe-card:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.15);
 }
 .recipe-title {
   font-size: 36rpx;
   font-weight: 500;
   display: block;
   margin-bottom: 20rpx;
+  color: rgba(63, 81, 181, 0.85);
 }
