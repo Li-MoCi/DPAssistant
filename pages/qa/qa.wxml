@@ -1,14 +1,72 @@
 <view class="container">
-  <view class="chat-history" id="chat-list">
+
+  <view class="tabs">
+    <view class="tab {{activeTab === 'assistant' ? 'active' : ''}}" bindtap="switchTab" data-tab="assistant">科普助手</view>
+    <view class="tab {{activeTab === 'dietitian' ? 'active' : ''}}" bindtap="switchTab" data-tab="dietitian">数字营养师</view>
+  </view>
+
+
+<!-- 科普助手页面 当tabs为assistant  -->
+  <view class="chat-history" id="chat-list" wx:if="{{isassistant}}">
     <block wx:for="{{messages}}" wx:key="index">
-      <view class="message {{item.role === 'user' ? 'user' : 'assistant'}}">
+      <view class="message {{item.role}}">
         <view class="bubble">{{item.content}}</view>
       </view>
     </block>
+
   </view>
-  <view class="input-area">
-    <input type="text" placeholder="输入您的问题..." bindinput="onInput" value="{{inputValue}}" />
+
+  <view class="input-area" wx:if="{{isassistant}}">
+    <input type="text" placeholder="问问控糖知识..." bindinput="onInput" value="{{inputValue}}" />
     <button size="mini" type="primary" bindtap="sendMessage">发送</button>
+    <button size="mini" bindtap="startVoice">🎤</button>
+  </view>
+
+
+<!-- 数字营养师页面 当tabs为dietitian  -->
+  <view class="chat-history" id="chat-list" wx:if="{{!isassistant}}">
+    <block wx:for="{{messages_nutritionost}}" wx:key="index">
+      <view class="message {{item.role}}">
+        <view class="bubble">{{item.content}}</view>
+      </view>
+    </block>
+
+    <view wx:if="{{loading_nutritionost}}" class="loading">
+      <text class="loading-text">控糖食谱生成中...</text>
+    </view>
+
+    <view wx:if="{{recipe}}" class="recipe-card">
+      <view class="recipe-header">
+        <view class="recipe-icon">🍽️</view>
+        <text class="recipe-title">控糖友好型食谱建议</text>
+      </view>
+
+      <view class="recipe-body">
+        <text class="recipe-text">建议选择</text>
+        <text class="recipe-highlight">{{recipe.main}}</text>
+        <text class="recipe-text">，搭配{{recipe.side}}。</text>
+
+        <view class="recipe-note">
+          <text class="note-icon">i</text>
+          <text class="note-text">进餐顺序：先吃菜，再吃肉，最后吃面。高纤维与蛋白质能平缓血糖波动。</text>
+        </view>
+
+        <view class="recipe-knowledge">
+          <text class="knowledge-icon">📖</text>
+          <text class="knowledge-text">来自低GI食物知识库：{{recipe.knowledge}}</text>
+        </view>
+
+        <view class="recipe-actions">
+          <button class="outline" bindtap="generateRecipe">生成新方案</button>
+          <button class="primary" bindtap="addToPlan">加入今日计划</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="input-area" wx:if="{{!isassistant}}">
+    <input type="text" placeholder="定制控糖方案..." bindinput="onInput" value="{{inputValue}}" />
+    <button size="mini" type="primary" bindtap="generateRecipe">发送</button>
     <button size="mini" bindtap="startVoice">🎤</button>
   </view>
 </view>

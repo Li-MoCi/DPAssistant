@@ -1,59 +1,227 @@
 .container {
-  padding: 20rpx;
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.1) 0 10rpx,
-    transparent 10rpx 20rpx
-  ),
-  linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  min-height: 100vh;
+  min-height: 90vh;
+  padding: 26rpx 22rpx 34rpx;
+  background-color: #f7f6f6;
+  padding-bottom: 110rpx;
 }
-.section {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  border-radius: 16rpx;
-  padding: 30rpx;
-  margin-bottom: 20rpx;
-  box-shadow: 0 12rpx 28rpx rgba(0, 0, 0, 0.12), 0 6rpx 18rpx rgba(63, 81, 181, 0.08);
-  border: 1rpx solid transparent;
-  border-image: repeating-linear-gradient(
-    45deg,
-    rgba(63, 81, 181, 0.25) 0 4rpx,
-    transparent 4rpx 8rpx
-  ) 1;
+.page-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: rgba(47, 53, 66, 0.92);
+  margin-bottom: 22rpx;
+}
+.report-card {
+  background: #ffffff;
+  border-radius: 26rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 16rpx 28rpx rgba(0, 0, 0, 0.12);
+  border: 1rpx solid rgba(245, 138, 112, 0.2);
+}
+.report-score {
+  display: flex;
+  flex-direction: column;/* 控款块内的元素为竖直排列*/
+  align-items: center;/*元素居中对齐  水平方向居中*/
+  justify-content: center;/* 竖直方向居中*/
+  background-color: #fff;
+  background: linear-gradient(135deg, rgba(166, 97, 89, 0.2) 0%, rgba(166, 97, 89, 0.4) 100%);
+  border-top-left-radius: 26rpx;
+  border-top-right-radius: 26rpx;
+  height:128px;
+}
+.score {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: #a66159;
+}
+.score-label {
+  font-size: 28rpx;
+  color: #a66159;
+}
+
+.report-summary {
+  background: #ffffff;
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  border-bottom-left-radius: 26rpx;
+  border-bottom-right-radius: 26rpx;
+}
+.summary-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #0F172A;
+  margin-bottom: 12rpx;
+}
+.summary-text {
+  font-size: 28rpx;
+  color:#475569;
+  line-height: 36rpx;
+}
+
+
+.nutrition-details {
+  margin-bottom: 24rpx;
+  /* Section - Nutrient Analysis */
+
+box-sizing: border-box;
+
+/* Auto layout */
+/* display: flex;
+flex-direction: column;
+align-items: flex-start; */
+padding: 14px 20px;
+
+background: #FFFFFF;
+border: 1px solid rgba(166, 97, 89, 0.1);
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+border-radius: 24px;
+
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18rpx;
 }
 .section-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: rgba(47, 53, 66, 0.9);
+}
+.section-tip {
+  /* Overlay */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding-left: 6px;
+padding-top: 6px;
+width: 76px;
+height: 24px;
+
+background: rgba(166, 97, 89, 0.1);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+  font-size: 28rpx;
+  color: #a66159;
+  background-color: #f7f0ef;
+}
+.nutrient-row {
+  margin-bottom: 24rpx;
+}
+.nutrient-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.nutrient-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: rgba(47, 53, 66, 0.9);
+}
+.nutrient-status-yes {
+  font-size: 22rpx;
+  color: #16a34a;
+}
+.nutrient-status-no {
+  font-size: 22rpx;
+  color: #ef4444;
+}
+.nutrient-bar {
+  height: 18rpx;
+  border-radius: 12rpx;
+  background-color: #f7f0ef;
+  overflow: hidden;
+}
+.nutrient-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d6b7b3, #a66159);
+}
+
+
+.plan-card {
+  background: #f2eeed;
+  border-radius: 48rpx;
+  padding: 15rpx 40rpx;
+  /* 第一个是上下  第二个是左右 */
+  border: 1rpx dotted #dcc4c1;
+  margin-bottom: 24rpx;
+}
+.plan-title {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: rgba(47, 53, 66, 0.9);
+  margin-bottom: 18rpx;
+}
+.plan-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  gap: 10rpx;
+  margin: 12rpx 0;
+  border-radius: 32rpx;
+  padding: 20rpx 32rpx;
+}
+.plan-dot {
+  font-size: 26rpx;
+  line-height: 32rpx;
+  color: rgba(245, 138, 112, 0.9);
+}
+.plan-text {
+  flex: 1;
+  font-size: 26rpx;
+  color: #334155;
+  line-height: 34rpx;
+}
+.plan-note {
+  font-size: 26rpx;
+  color: #a66159;
+}
+.recommendations {
+  margin-bottom: 40rpx;
+  background: #f7f6f6;
+  padding: 24rpx 40rpx;
+  /* 第一个是上下  第二个是左右 */
+}
+.recommend-item {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 18rpx;
+  border-radius: 48rpx;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12rpx 22rpx rgba(0, 0, 0, 0.08);
+  border: 1rpx solid rgba(245, 138, 112, 0.15);
+  margin-top: 16rpx;
+}
+.recommend-icon {
   font-size: 32rpx;
-  font-weight: 500;
-  display: block;
-  margin-bottom: 20rpx;
-  color: rgba(63, 81, 181, 0.85);
+  margin-right: 14rpx;
+  color: rgba(245, 138, 112, 0.9);
 }
-.picker {
-  border: 2rpx solid rgba(63, 81, 181, 0.25);
-  border-radius: 12rpx;
-  padding: 20rpx;
-  margin-bottom: 16rpx;
-  background: #f8f9fa;
-  transition: border-color 0.3s ease;
+.recommend-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
-.picker:focus {
-  border-color: rgba(63, 81, 181, 0.6);
+.recommend-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: rgba(47, 53, 66, 0.9);
 }
-input {
-  border: 2rpx solid rgba(63, 81, 181, 0.25);
-  border-radius: 12rpx;
-  padding: 20rpx;
-  margin-bottom: 16rpx;
-  background: #f8f9fa;
-  transition: border-color 0.3s ease;
+.recommend-subtitle {
+  font-size: 22rpx;
+  color: rgba(94, 105, 124, 0.7);
+  margin-top: 6rpx;
 }
-input:focus {
-  border-color: rgba(63, 81, 181, 0.6);
-}
-.advice-card {
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-  padding: 20rpx;
-  border-radius: 12rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
-  border: 1rpx solid rgba(63, 81, 181, 0.2);
+.recommend-arrow {
+  font-size: 28rpx;
+  color: rgba(94, 105, 124, 0.7);
 }

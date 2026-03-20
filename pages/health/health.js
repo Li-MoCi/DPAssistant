@@ -1,68 +1,27 @@
 Page({
   data: {
-    recordTypes: ['空腹血糖', '餐后血糖', '血压(收缩压)', '体重'],
-    currentType: '空腹血糖',
-    inputValue: '',
-    advice: '根据近三天数据，您的空腹血糖稳定在6.0左右，但餐后血糖偏高。建议晚餐后散步30分钟，并注意控制主食量。',
-    healthData: []
-  },
-  onLoad() {
-    const app = getApp();
-    this.setData({ healthData: app.globalData.healthRecords });
-    this.drawChart();
-  },
-  onTypeChange(e) {
-    this.setData({ currentType: this.data.recordTypes[e.detail.value] });
-  },
-  onValueInput(e) {
-    this.setData({ inputValue: e.detail.value });
-  },
-  addRecord() {
-    const val = parseFloat(this.data.inputValue);
-    if (isNaN(val)) {
-      wx.showToast({ title: '请输入有效数值', icon: 'none' });
-      return;
+    weeklyReport: {
+      score: 85,
+      summary: '膳食纤维摄入不足（缺口 15%），优质蛋白及碳水摄入达标。建议增加深色叶菜摄入。',
+      nutrients: [
+        { id: 'fiber', name: '膳食纤维', progress: 45, status: '缺口 15%' },
+        { id: 'protein', name: '蛋白质', progress: 100, status: '已达标' },
+        { id: 'carb', name: '碳水化合物', progress: 100, status: '已达标' }
+      ],
+      plan: '午餐额外增加一份绿叶蔬菜。',
+      recommendations: [
+        { id: 'gi', title: '挑选对血糖友好的优质食材', subtitle: 'GI 值低更有助于血糖稳定' },
+        { id: 'menu', title: '推荐食谱：高纤膳食', subtitle: '本周精选 5 款简单食谱' }
+      ]
     }
-    const newRecord = {
-      date: new Date().toISOString().slice(0,10),
-      type: this.data.currentType,
-      value: val
-    };
-    let records = this.data.healthData;
-    records.push(newRecord);
-    this.setData({ healthData: records, inputValue: '' });
-    wx.showToast({ title: '记录成功', icon: 'success' });
-    // 更新全局
-    getApp().globalData.healthRecords.push(newRecord);
-    this.drawChart();
-    // 模拟更新建议
-    this.updateAdvice();
   },
-  drawChart() {
-    const ctx = wx.createCanvasContext('glucoseChart');
-    // 简单绘制折线，只演示
-    const data = this.data.healthData.filter(r => r.type.includes('血糖')).slice(-7);
-    if (data.length === 0) return;
-    const values = data.map(r => r.value);
-    const max = Math.max(...values) + 1;
-    const min = Math.min(...values) - 1;
-    const stepX = 60;
-    ctx.beginPath();
-    ctx.setStrokeStyle('#07c160');
-    ctx.setLineWidth(3);
-    data.forEach((item, index) => {
-      const x = 50 + index * stepX;
-      const y = 300 - ((item.value - min) / (max - min)) * 200;
-      if (index === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    });
-    ctx.stroke();
-    ctx.draw();
-  },
-  updateAdvice() {
-    // 模拟AI分析
-    this.setData({
-      advice: '您最近一次餐后血糖为9.2，较前日有所下降。继续保持良好习惯，建议增加蔬菜摄入。'
-    });
-  }
-})
+  onShow(){
+    // 获取自定义 tabBar 组件实例
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      // 将当前页面的索引（这里是首页，索引0）设置给 tabBar 组件
+      this.getTabBar().setData({
+        selected: 3
+      })
+    }
+},
+});

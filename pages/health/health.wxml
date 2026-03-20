@@ -1,15 +1,52 @@
 <view class="container">
-
-  <view class="section">
-    <text class="section-title">记录新数据</text>
-    <picker mode="selector" range="{{recordTypes}}" bindchange="onTypeChange">
-      <view class="picker">类型：{{currentType}}</view>
-    </picker>
-    <input type="digit" placeholder="数值" bindinput="onValueInput" />
-    <button type="primary" bindtap="addRecord">添加记录</button>
+  <view class="report-card">
+    <view class="report-score">
+      <text class="score-label">本周综合评分</text>
+      <text class="score">{{weeklyReport.score}}</text>
+    </view>
+    <view class="report-summary">
+      <text class="summary-title">核心结论</text>
+      <text class="summary-text">{{weeklyReport.summary}}</text>
+    </view>
   </view>
-  <view class="section">
-    <text class="section-title">AI建议</text>
-    <view class="advice-card">{{advice}}</view>
+
+  <view class="nutrition-details">
+    <view class="section-header">
+      <text class="section-title">营养素明细</text>
+      <view class="section-tip">更新至今天</view>
+    </view>
+    <block wx:for="{{weeklyReport.nutrients}}" wx:key="id">
+      <view class="nutrient-row">
+        <view class="nutrient-label">
+          <text class="nutrient-name">{{item.name}}</text>
+          <text class="{{  item.status=== '已达标' ? 'nutrient-status-yes' : 'nutrient-status-no' }}">{{item.status}}</text>
+          <!-- https://chat.deepseek.com/a/chat/s/7416086d-0145-462f-9768-56016afde427 链接中可以看到不能使用两个双括号进行查询 -->
+        </view>
+        <view class="nutrient-bar">
+          <view class="nutrient-fill" style="width: {{item.progress}}%;"></view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="plan-card">
+    <text class="plan-title">下周行动方案</text>
+    <view class="plan-item">
+      <text class="plan-text">{{weeklyReport.plan}}</text>
+      <text class="plan-note">方案已同步至每日提醒</text>
+    </view>
+
+  </view>
+
+  <view class="recommendations">
+    <text class="section-title">知识推荐</text>
+    <view class="recommend-item" wx:for="{{weeklyReport.recommendations}}" wx:key="id">
+      <view class="recommend-icon">📘</view>
+      <view class="recommend-content">
+        <text class="recommend-title">{{item.title}}</text>
+        <text class="recommend-subtitle">{{item.subtitle}}</text>
+      </view>
+      <view class="recommend-arrow">›</view>
+    </view>
   </view>
 </view>

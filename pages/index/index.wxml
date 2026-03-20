@@ -1,13 +1,80 @@
-<view class="container">
-  <view class="header">
-    <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
-    <text class="greeting">你好，{{nickName}}</text>
+<view class="page">
+  <view class="top">
+    <view class="profile">
+      <image class="avatar" src="{{avatarUrl}}" mode="aspectFill" />
+      <view class="greeting">
+        <text class="title">早上好，{{nickName}}</text>
+        <text class="subtitle">今日血糖平稳，请继续保持！</text>
+      </view>
+    </view>
+
+    <view class="health-card">
+      <view class="health-header">
+        <view>
+          <text class="health-label">健康简报</text>
+          <view class="health-value">
+            <text class="value">{{health.bloodSugar}}</text>
+            <text class="unit">mmol/L</text>
+          </view>
+        </view>
+        <view class="health-status">{{health.status}}</view>
+      </view>
+
+      <view class="trend">
+        <view class="trend-title">血糖趋势（mmol/L）</view>
+        <view class="trend-chart">
+          <block wx:for="{{health.trend}}" wx:key="index">
+            <view class="dot" style="bottom: {{item}}%;"></view>
+          </block>
+          <view class="trend-axis">
+            <text>06:00</text>
+            <text>12:00</text>
+            <text>18:00</text>
+            <text>现在</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="fiber">
+        <view class="fiber-header">
+          <text class="fiber-title">今日膳食纤维目标</text>
+          <text class="fiber-progress">{{health.fiberCurrent}}g / {{health.fiberTarget}}g</text>
+        </view>
+        <view class="fiber-bar">
+          <view class="fiber-fill" style="width: {{health.fiberProgress}}%;"></view>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="card-grid">
-    <view class="card" wx:for="{{functions}}" wx:key="index" data-url="{{item.url}}" bindtap="goToPage">
-      <image class="card-icon" src="{{item.icon}}"></image>
-      <text class="card-title">{{item.title}}</text>
-      <text class="card-desc">{{item.desc}}</text>
+
+  <view class="section">
+    <text class="section-title">快捷工具</text>
+    <view class="tool-grid">
+      <block wx:for="{{quickTools}}" wx:key="id">
+        <view class="tool-card" bindtap="goToPage" data-url="{{item.url}}">
+          <text class="tool-icon">{{item.icon}}</text>
+          <text class="tool-title">{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">低GI百科</text>
+      <text class="section-link" bindtap="viewAllArticles">查看全部</text>
+    </view>
+    <view class="article-row">
+      <scroll-view wx:for="{{lowGITopics}}" wx:key="id" scroll-x="true">
+        <view class="article-card" bindtap="viewArticle" data-id="{{item.id}}">
+          <image class="article-cover" src="{{item.cover}}" mode="aspectFill" />
+          <view class="article-info">
+            <view class="article-tag">{{item.tag}}</view>
+            <view class="article-title">{{item.title}}</view>
+            <text class="article-meta">{{item.readTime}} 分钟阅读</text>
+          </view>
+        </view>
+      </scroll-view>
     </view>
   </view>
 </view>

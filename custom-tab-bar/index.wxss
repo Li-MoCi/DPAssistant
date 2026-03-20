@@ -1,0 +1,39 @@
+/* custom-tab-bar/index.wxss */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 110rpx; /* 调整整体高度 */
+  background-color: #f2eee9;
+  display: flex;
+  flex-direction: row;
+  border-top: 1rpx solid #ebe1db;
+  /* 处理安全区域 */
+  padding-bottom: 20rpx;
+  box-sizing: content-box;
+}
+
+.tab-bar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-bar-item .cover-image-class {
+  width: 40rpx;  /* 在这里调整图标的宽度 */
+  height: 40rpx; /* 在这里调整图标的高度 */
+  margin-bottom: 6rpx;
+}
+
+.tab-bar-item .tab-bar-text {
+  font-size: 22rpx;
+  color: #64748b;
+}
+
+.tab-bar-item-selected .tab-bar-text {
+  color: #a66159; /* 选中时的文字颜色 */
+}
+/* 选中时图标的样式可以通过父类控制，但颜色需在图片资源中体现，或使用CSS mask等技术 */

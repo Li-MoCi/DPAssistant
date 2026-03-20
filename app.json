@@ -5,7 +5,8 @@
     "pages/food/food",
     "pages/nutritionist/nutritionist",
     "pages/health/health",
-    "pages/articles/articles"
+    "pages/articles/articles",
+    "pages/medicine/medicine"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -13,6 +14,10 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "custom": true,  
+    "color": "#64748b",
+    "selectedColor": "#a66159",
+    "backgroundColor": "#f2eee9",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -37,9 +42,16 @@
         "text": "健康",
         "iconPath": "/images/dietitian.png",
         "selectedIconPath": "/images/dietitian_active.png"
+      },
+      {
+        "pagePath": "pages/medicine/medicine",
+        "text": "用药",
+        "iconPath": "/images/dietitian.png",
+        "selectedIconPath": "/images/dietitian_active.png"
       }
-    ]
+    ]   
   },
+  "usingComponents": {},
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

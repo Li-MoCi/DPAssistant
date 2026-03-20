@@ -1,14 +1,32 @@
 Page({
   data: {
     userRequest: '',
-    recipe: ''
+    recipe: '',
+    messages: [
+      { role: 'assistant', content: '您好！我是您的AI营养助手。今天想吃点什么？我可以为您定制控糖方案。' }
+    ],
+    loading:false
   },
   onInput(e) {
     this.setData({ userRequest: e.detail.value });
   },
+  addMessage(role, content) {
+    const msgs = this.data.messages;
+    msgs.push({ role, content });
+    this.setData({ messages: msgs }, () => {
+      wx.pageScrollTo({
+        selector: '#chat-list',
+        offsetTop: 1000,
+        duration: 300
+      });
+    });
+  },
   generateRecipe() {
+    this.addMessage('user',this.data.userRequest)
     const req = this.data.userRequest.trim() || '均衡饮食';
-    wx.showLoading({ title: '生成中...' });
+    this.setData({
+      loading:true
+    })
     setTimeout(() => {
       wx.hideLoading();
       let recipe = '';
@@ -20,6 +38,16 @@ Page({
         recipe = '推荐食谱：早餐：全麦面包2片+无糖酸奶+水煮蛋；午餐：糙米饭100g+清炒鸡胸肉+凉拌黄瓜；晚餐：番茄豆腐汤+蒸南瓜。两餐之间可加餐一小把坚果。';
       }
       this.setData({ recipe });
+      this.setData({
+        loading:false
+      })
     }, 1000);
-  }
+  },
+  startVoice() {
+    wx.showToast({ title: '语音识别中...', icon: 'none' });
+    setTimeout(() => {
+      this.setData({ inputValue: '我想吃面条' });
+    }, 2000);
+  },
+
 })

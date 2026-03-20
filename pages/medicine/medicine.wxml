@@ -1,0 +1,66 @@
+<view class="container">
+  <view class="date">
+    <view class="date-item today">
+      <text>20</text>
+      <text>今</text>
+      <text style=" font-weight: bolder; font-size: large;">·</text>
+    </view>
+    <view class="date-item">
+      <text>21</text>
+      <text>六</text>
+      <text style="color: #22c55e; font-weight: bolder; font-size: large;">·</text>
+    </view>
+    <view class="date-item">
+      <text>22</text>
+      <text>日</text>
+      <text style="color: #22c55e; font-weight: bolder; font-size: large;">·</text>
+    </view>
+    <view class="date-item">
+      <text>23</text>
+      <text>一</text>
+      <text style="color: #22c55e; font-weight: bolder; font-size: large;">·</text>
+    </view>
+    <view class="date-item">
+      <text>24</text>
+      <text>二</text>
+      <text style="color: #22c55e; font-weight: bolder; font-size: large;">·</text>
+    </view>
+    <view class="date-item">
+      <text>25</text>
+      <text>三</text>
+      <text style="color: #22c55e; font-weight: bolder; font-size: large;">·</text>
+    </view>
+  </view>
+
+  <view class="remind">
+    <view class="remind-text">
+      <view class="wenzi">本月服药率</view>
+      <view class="shuzi">98%</view>
+    </view>
+    <image src="https://cdn.nlark.com/yuque/0/2026/png/62865233/1773921947247-0463c811-ba9a-4840-b953-b175e0f5def6.png?x-oss-process=image%2Fformat%2Cwebp" style="width: 64px; height:64px"></image>
+  </view>
+
+
+  <view class="plan">
+    <view class="plan-header">
+      <view class="header-title">今日用药计划</view>
+      <view class="header-count">共3种药物</view>
+    </view>
+
+    <view class="plan-content" wx:for="{{medicine}}">
+      <view class="plan-item">
+      <view class="plan-left1"><view>{{item.name}}</view>
+          <view class="plan-left">
+            <view>{{item.count}}</view>
+            <view>{{item.time}}</view>
+          </view></view>
+          
+
+
+<!-- 这里考虑的是只有是药物信息的按钮的基本组件都放在这里 对于不同转态的在分别设置对应的css样式 -->
+        <view class="plan-status {{item.status==='已服用' ? 'yes' : '' }}  {{item.status==='待服用' ? 'wait' : '' }} {{item.status==='提醒中' ? 'reminding' : '' }}">{{item.status}}</view>
+      </view>
+
+    </view>
+  </view>
+</view>

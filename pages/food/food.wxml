@@ -1,23 +1,42 @@
+<!-- https://cdn.nlark.com/yuque/0/2026/png/62865233/1773912758345-1e55504c-796a-43a9-ab50-a3900aded322.png?x-oss-process=image%2Fformat%2Cwebp -->
 <view class="container">
-  <view class="section">
-    <button type="primary" bindtap="takePhoto">📷 拍照识别食物</button>
-    <button bindtap="uploadImage">🖼️ 从相册上传</button>
-  </view>
-  <view wx:if="{{recognizedFood}}" class="recognized-card">
-    <text>识别结果：{{recognizedFood.name}}（估算含糖量：{{recognizedFood.sugar}}g）</text>
-    <button size="mini" bindtap="confirmRecord">确认记录</button>
-  </view>
-  <view class="section">
-    <text class="section-title">今日饮食记录</text>
-    <view wx:for="{{todayRecords}}" wx:key="index" class="record-item">
-      <text>{{item.meal}}：{{item.foods[0].name}} {{item.foods[0].amount}}（糖{{item.sugar}}g）</text>
+
+  <view class="scanner">
+    <image class="food-preview" src="{{recognizedFood && recognizedFood.image ? recognizedFood.image : defaultImage}}" mode="aspectFill" />
+    <view class="scanner-actions">
+      <button class="scan-btn" bindtap="takePhoto">📷 拍照</button>
+      <button class="scan-btn" bindtap="uploadImage">🖼 相册</button>
+      <button class="scan-btn" bindtap="confirmRecord" wx:if="{{recognizedFood}}">✅ 保存</button>
     </view>
-    <view wx:if="{{todayRecords.length === 0}}">暂无记录，点击拍照添加</view>
   </view>
-  <view class="section">
-    <button bindtap="generateWeekReport">📊 生成饮食周报</button>
-    <view wx:if="{{weekReport}}" class="report-card">
-      <text>{{weekReport}}</text>
+  <view class="overlay"  wx:if="{{recognizedFood}}">
+      <view class="sugar">
+        <view class="sugar-label">估算含糖量</view>
+        <view>        <text class="sugar-value">{{recognizedFood ? recognizedFood.sugar : 0}}</text>
+        <text class="sugar-unit">克</text></view>
+      </view>
+    </view>
+
+  <view class="intake"  wx:if="{{recognizedFood}}">
+    <view class="intake-header">
+      <text class="intake-title">每日糖分摄入</text>
+      <text class="intake-count">{{dailySugar}}g / {{dailyLimit}}g</text>
+    </view>
+    <view class="intake-bar">
+      <view class="intake-fill" style="width: {{dailyProgress}}%;"></view>
+    </view>
+    <text class="intake-tip" >本餐含糖量较高，请注意控制分量。</text>
+  </view>
+
+  <view class="advice"  wx:if="{{recognizedFood}}">
+    <text class="advice-title">AI 营养建议</text>
+    <view class="advice-card">
+      <text>建议：改选荞麦面，搭配鸡胸肉和大量绿叶蔬菜。</text>
+      <view class="advice-note">贴士：先吃蔬菜，再吃面条，有助于稳定餐后血糖。</view>
+    </view>
+    <view class="advice-actions">
+      <button class="outline" bindtap="generateWeekReport">保存到日记</button>
+      <button class="primary" bindtap="generateWeekReport">营养详情</button>
     </view>
   </view>
 </view>

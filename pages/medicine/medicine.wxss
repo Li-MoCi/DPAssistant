@@ -1,0 +1,141 @@
+.container {
+  padding: 2rpx 22rpx 34rpx;
+  background-color: #f7f6f6;
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+}
+
+.date{
+  padding:16px;
+  display: flex;
+  flex-direction: row;
+  gap:18rpx;
+}
+
+
+
+.date-item{
+  padding:20rpx;
+  background-color: #f0e8e7;
+  border-radius: 24rpx;
+  width:56rpx;
+  height:100rpx;
+  display: flex;
+  flex-direction: column;
+  color:#b57c75;
+  align-items: center;
+  justify-content: center;
+}
+.today{
+  background-color: #a6625a;
+  color: #ffffff;
+}
+.remind{
+  background-color: #f0e8e7;
+  display: flex;
+  /* 改了这么久才发现吧felx拼写错了。。。。。。。。 */
+  align-items: center;
+  justify-content: space-between; /* 两端对齐 */
+  width:90%;
+  border-radius: 24px;
+  padding:16px;
+}
+
+.remind-text{
+  display: flex;
+  flex-direction: column;
+}
+
+.wenzi{
+  color: #b57c75;
+  font-size: 14px;
+  font-weight: normal;
+}
+.shuzi{
+  color: #a66159;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.plan{
+  padding:24px 16px;
+  width: 100%;
+}
+
+.plan-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.header-title{
+  color:#323949;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.header-count{
+  border-radius: 16rpx;
+  width:55px;
+  background-color: #e2e8f0;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: normal;
+  padding:15rpx;
+}
+
+.plan-item{
+  padding:16px;
+  margin-bottom:12px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between; 
+
+}
+
+.plan-left{
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  font-size: 16px;
+}
+
+.plan-left{
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  font-weight: normal;
+  color: #64748b;
+}
+
+.plan-status{
+  border-radius: 8px;
+  /* Background */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 2px 8px;
+
+width: 44px;
+height: 20px;
+font-size: 14px;
+font-weight: normal;
+}
+/* 已服用 */
+.yes{
+  color:#16a34a;
+  background-color: #f0fdf4;
+}
+/* 待服用 */
+.wait{
+  color:#64748b;
+  background-color: #f1f5f9;
+}
+/* 提醒中 */
+.reminding{
+  color:#d97706;
+  background-color: #fffbeb;
+}
